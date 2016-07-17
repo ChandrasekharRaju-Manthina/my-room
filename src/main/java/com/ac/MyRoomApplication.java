@@ -11,7 +11,7 @@ public class MyRoomApplication {
 
 	@RequestMapping("/")
 	String home() {
-		return "Hello World!";
+		return "Hello World!" + "My changes are working!!";
 	}
 
 	public static void main(String[] args) {
