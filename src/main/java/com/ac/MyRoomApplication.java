@@ -1,5 +1,7 @@
 package com.ac;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -31,6 +33,11 @@ public class MyRoomApplication {
 	@RequestMapping(value = "/createNewExpense", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Expense> createNewExpense(@RequestBody Expense expense) {
 		return new ResponseEntity<Expense>(repository.save(expense), HttpStatus.CREATED);
+	}
+
+	@RequestMapping(value = "/getAllExpenses", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Expense>> getAllExpenses() {
+		return new ResponseEntity<List<Expense>>((List<Expense>) repository.findAll(), HttpStatus.OK);
 	}
 
 	public static void main(String[] args) {
