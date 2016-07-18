@@ -14,6 +14,11 @@ public class MyRoomApplication {
 		return "Hello World!" + "My changes are working!!";
 	}
 
+	@RequestMapping("/home")
+	String lunchPad() {
+		return "Anil : Hello World!" + "My changes are working!!";
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(MyRoomApplication.class, args);
 	}
