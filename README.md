@@ -1,6 +1,6 @@
 # my-room
 
-Anil and I manage this project. This tool gives us option to track our monthly room expenses.
+Anil and I (Chandra) manage this project. We are developing this tool to track our monthly room expenses.
 
 We are using the below technologies to develop this applicaiton.
 <ul>
