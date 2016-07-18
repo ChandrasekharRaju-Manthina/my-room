@@ -1,13 +1,22 @@
 package com.ac;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
 public class MyRoomApplication {
+
+	@Autowired
+	private ExpensesRepository repository;
 
 	@RequestMapping("/")
 	String home() {
@@ -18,7 +27,11 @@ public class MyRoomApplication {
 	String lunchPad() {
 		return "Anil : Hello World!" + "My changes are working!!";
 	}
-	
+
+	@RequestMapping(value = "/createNewExpense", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Expense> createNewExpense(@RequestBody Expense expense) {
+		return new ResponseEntity<Expense>(repository.save(expense), HttpStatus.CREATED);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(MyRoomApplication.class, args);
