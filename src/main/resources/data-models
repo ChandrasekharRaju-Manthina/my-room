@@ -1,0 +1,3 @@
+Expense - (purchansedItems,amount,spentdate)Contains the all the expense details.
+User - User Information (name,emailId,MobileNumber)
+Admin - (AdminId and AdminName) Monitor the all the Users and Expenses
