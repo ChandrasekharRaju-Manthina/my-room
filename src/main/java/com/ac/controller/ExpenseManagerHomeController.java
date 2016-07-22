@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ExpenseManagerHomeController {
 
-	@RequestMapping("/getAllExpenses")
+	@RequestMapping("/dashBoard")
 	public String greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name,
 			Model model) {
 		model.addAttribute("name", name);
