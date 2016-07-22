@@ -1,4 +1,4 @@
-package com.ac.repository;
+package com.ac.model;
 
 import java.io.Serializable;
 import java.math.BigInteger;

@@ -14,5 +14,7 @@ public class ExpenseManagerHomeController {
 		model.addAttribute("name", name);
 		return "home";
 	}
+	
+	
 
 }

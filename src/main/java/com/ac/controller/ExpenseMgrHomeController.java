@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ac.model.ExpensesRepository;
-import com.ac.repository.Expense;
+import com.ac.model.Expense;
+import com.ac.repository.ExpensesRepository;
 
 @RestController
 public class ExpenseMgrHomeController {
@@ -31,13 +31,11 @@ public class ExpenseMgrHomeController {
 
 	@RequestMapping(value = "/createNewExpense", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Expense> createNewExpense(@RequestBody Expense expense) {
-		return new ResponseEntity<Expense>(repository.save(expense),
-				HttpStatus.CREATED);
+		return new ResponseEntity<Expense>(repository.save(expense), HttpStatus.CREATED);
 	}
 
 	@RequestMapping(value = "/getAllExpenses", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Expense>> getAllExpenses() {
-		return new ResponseEntity<List<Expense>>(
-				(List<Expense>) repository.findAll(), HttpStatus.OK);
+		return new ResponseEntity<List<Expense>>((List<Expense>) repository.findAll(), HttpStatus.OK);
 	}
 }
