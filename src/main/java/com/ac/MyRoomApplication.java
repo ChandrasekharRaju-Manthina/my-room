@@ -6,6 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.sun.glass.ui.Application;
 
@@ -13,9 +17,9 @@ import com.sun.glass.ui.Application;
 @ComponentScan(basePackages = { "com.ac.controller", "com.ac.model",
 		"com.ac.repository" })
 @EnableAutoConfiguration
+@Controller
 public class MyRoomApplication extends SpringBootServletInitializer {
 
-	
 	@Override
 	protected SpringApplicationBuilder configure(
 			SpringApplicationBuilder builder) {
@@ -24,6 +28,11 @@ public class MyRoomApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MyRoomApplication.class, args);
+	}
+
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home() {
+		return "home";
 	}
 
 }
