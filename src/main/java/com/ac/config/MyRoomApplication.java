@@ -21,6 +21,7 @@ public class MyRoomApplication extends SpringBootServletInitializer {
 	}
 
 	public static void main(String[] args) {
+		System.getenv("JDBC_DATABASE_URL");
 		SpringApplication.run(MyRoomApplication.class, args);
 	}
 
