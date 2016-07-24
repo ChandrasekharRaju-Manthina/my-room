@@ -6,14 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@ComponentScan
+@ComponentScan(basePackages={"com.ac.controller"})
 @EnableAutoConfiguration
-@Controller
+@Import(WebConfig.class)
 public class MyRoomApplication extends SpringBootServletInitializer {
 
 	@Override
@@ -26,9 +24,6 @@ public class MyRoomApplication extends SpringBootServletInitializer {
 		SpringApplication.run(MyRoomApplication.class, args);
 	}
 
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String home() {
-		return "home";
-	}
+	
 
 }
