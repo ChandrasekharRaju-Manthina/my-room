@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sun.glass.ui.Application;
 
 @SpringBootApplication
-@ComponentScan(basePackages = { "com.ac.controller", "com.ac.model",
-		"com.ac.repository" })
+@ComponentScan
 @EnableAutoConfiguration
 @Controller
 public class MyRoomApplication extends SpringBootServletInitializer {
