@@ -35,7 +35,7 @@ public class MyRoomApplication extends SpringBootServletInitializer {
 	//
 	// }
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		SpringApplication.run(MyRoomApplication.class, args);
 	}
 
