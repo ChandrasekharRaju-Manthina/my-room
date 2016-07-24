@@ -9,21 +9,34 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@ComponentScan(basePackages={"com.ac.controller"})
+@ComponentScan(basePackages = { "com.ac.controller", "com.ac.repository" })
 @EnableAutoConfiguration
 @Import(WebConfig.class)
 public class MyRoomApplication extends SpringBootServletInitializer {
 
 	@Override
-	protected SpringApplicationBuilder configure(
-			SpringApplicationBuilder builder) {
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 		return builder.sources(MyRoomApplication.class);
 	}
 
-	public static void main(String[] args) {
+	// @Bean
+	// CommandLineRunner init(final ExpenseRepository expeenseRepository) {
+	// return new CommandLineRunner() {
+	// @Override
+	// public void run(String... strings) throws Exception {
+	// Expense expense = new Expense();
+	// expense.setOwner("Anil");
+	// expense.setSpentDate(LocalDate.now());
+	// expense.setCost(new BigDecimal("250"));
+	//
+	// expeenseRepository.save(expense);
+	// }
+	// };
+	//
+	// }
+
+	public static void main(String[] args) throws Exception {
 		SpringApplication.run(MyRoomApplication.class, args);
 	}
-
-	
 
 }
