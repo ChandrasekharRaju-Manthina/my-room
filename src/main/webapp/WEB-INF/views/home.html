@@ -1,61 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-1.12.3.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#example').DataTable();
-	});
-</script>
 
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-
-<script type="text/javascript"
-	src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-
-
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-</head>
-<body>
-
-	<div ng-app="myApp" ng-controller="customersCtrl" align="center">
-
-		<table id="example" class="display" cellspacing="0" width="100%"
-			border="1">
-
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Name</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="x in expenses">
-					<td>{{ x.id }}</td>
-					<td>{{ x.name }}</td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<th>Id</th>
-					<th>Name</th>
-				</tr>
-			</tfoot>
-		</table>
-
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Room-Expense-Manager</title>
+  </head>
+  <body ng-app="expenseApp">
+ 	<p style="height: 30px;"><a href="#overview">OverView</a> | <a href="#metrics">Metrics</a></p>
+ 	<hr/>
+	<div ng-view>
 	</div>
-
-	<script>
-		var app = angular.module('myApp', []);
-		app.controller('customersCtrl', function($scope, $http) {
-			$http.get("/getAllExpenses").then(function(response) {
-				$scope.expenses = response.data;
+	  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+	  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-route.min.js"></script>
+	 
+	<!--   <script type="text/javascript" th:src="@{/js/roomExpApp.js}"></script>
+	  <script type="text/javascript" th:src="@{/js/routes.js}"></script> --> 
+	  
+	  
+	<script type="text/javascript">
+		var roomExpApp = angular.module('expenseApp', [ 'ngRoute' ]);
+		roomExpApp.config([ '$routeProvider', function($routeProvider) {
+			$routeProvider.when('/overview', {
+				templateUrl : 'overview.html'
+			}).when('/metrics', {
+				templateUrl : 'metrics.html'
+			}).otherwise({
+				redirectTo : '/overview'
 			});
-		});
-	</script>
 
+		} ]);
+	</script>
 </body>
 </html>
+
