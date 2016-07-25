@@ -13,15 +13,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 
-    Logger logger = LoggerFactory.getLogger(HomeController.class);
+	Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-    @Autowired
-    Environment environment;
+	@Autowired
+	Environment environment;
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String home() {
-        logger.info("Active profiles" + Arrays.toString(environment.getActiveProfiles()));
-        return "home";
-    }
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home() {
+		logger.info("Active profiles" + Arrays.toString(environment.getActiveProfiles()));
+		return "home";
+	}
+
+	@RequestMapping(value = "/metrics", method = RequestMethod.GET)
+	public String metrics() {
+		return "metrics";
+	}
+
+	@RequestMapping(value = "/overview", method = RequestMethod.GET)
+	public String overview() {
+		return "overview";
+	}
 
 }
