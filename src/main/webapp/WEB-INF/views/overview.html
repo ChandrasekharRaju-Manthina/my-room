@@ -1,9 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>This is Over View Page!</title>
-</head>
-<body>This is Over View Page!
-</body>
-</html>
+<div ng-app="myApp" ng-controller="customersCtrl" align="center">
+
+	<p style="height: 25px; font: arial;">Expense Details!</p>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Owner</th>
+				<th>SpentDate</th>
+				<th>Amount</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="x in expenses">
+				<td>{{ x.id }}</td>
+				<td>{{ x.owner }}</td>
+				<td>{{ x.spentDate }}</td>
+				<td>{{ x.cost }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
+

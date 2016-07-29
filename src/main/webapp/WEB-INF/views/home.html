@@ -30,7 +30,21 @@
 			});
 
 		} ]);
+		
+		roomExpApp.controller('customersCtrl', function($scope, $http) {
+			$http.get("/getExpenses").then(
+					function(response) {
+						$scope.expenses = response.data;
+					});
+		});
+		
+		
 	</script>
+
+
+
+	
+
 </body>
 </html>
 

@@ -18,6 +18,8 @@ public class HomeController {
 	@Autowired
 	Environment environment;
 
+	
+
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home() {
 		logger.info("Active profiles" + Arrays.toString(environment.getActiveProfiles()));
@@ -33,5 +35,7 @@ public class HomeController {
 	public String overview() {
 		return "overview";
 	}
+
+	
 
 }
