@@ -15,9 +15,8 @@ public class Expense {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-
 	private String owner;
-	private LocalDate spentDate;
+	private LocalDate spentDate = LocalDate.now();
 
 	private BigDecimal cost;
 

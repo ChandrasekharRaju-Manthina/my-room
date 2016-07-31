@@ -1,7 +1,5 @@
 package com.ac.config;
 
-import com.ac.model.Expense;
-import com.ac.repository.ExpenseRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -18,8 +16,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
+import com.ac.repository.ExpenseRepository;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.ac.controller", "com.ac.model", "com.ac.repository"})
@@ -37,7 +34,7 @@ public class MyRoomApplication extends SpringBootServletInitializer {
     @Bean
     public CommandLineRunner init(ExpenseRepository expeenseRepository) {
         return (args) -> {
-            Expense expense = new Expense();
+          /*  Expense expense = new Expense();
             expense.setOwner("Anil");
             expense.setSpentDate(LocalDate.now());
             expense.setCost(new BigDecimal("250"));
@@ -47,7 +44,7 @@ public class MyRoomApplication extends SpringBootServletInitializer {
             expense2.setOwner("Chandra");
             expense2.setSpentDate(LocalDate.now());
             expense2.setCost(new BigDecimal("300"));
-            expeenseRepository.save(expense2);
+            expeenseRepository.save(expense2);*/
         };
     }
 
