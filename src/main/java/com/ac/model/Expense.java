@@ -14,10 +14,8 @@ public class Expense {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
 	private String owner;
-	private LocalDate spentDate = LocalDate.now();
-
+	private LocalDate spentDate;
 	private BigDecimal cost;
 
 	public Long getId() {
@@ -41,7 +39,7 @@ public class Expense {
 	}
 
 	public void setSpentDate(LocalDate spentDate) {
-		this.spentDate = spentDate;
+		this.spentDate = LocalDate.now();
 	}
 
 	public BigDecimal getCost() {

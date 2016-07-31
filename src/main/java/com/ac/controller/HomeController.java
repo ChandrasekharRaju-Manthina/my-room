@@ -25,6 +25,12 @@ public class HomeController {
 		logger.info("Active profiles" + Arrays.toString(environment.getActiveProfiles()));
 		return "home";
 	}
+	
+	@RequestMapping(value = "/home-temp", method = RequestMethod.GET)
+	public String homeTest() {
+		logger.info("Active profiles" + Arrays.toString(environment.getActiveProfiles()));
+		return "home-temp";
+	}
 
 	@RequestMapping(value = "/metrics", method = RequestMethod.GET)
 	public String metrics() {
