@@ -22,14 +22,22 @@ public class ExpenseManagerRestController {
 	@Autowired
 	ExpenseRepository repository;
 
-	@RequestMapping(value = "/getExpenses", produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE,method=RequestMethod.GET)
+	@RequestMapping(value = "/getExpenses", produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 	public ResponseEntity<List<Expense>> getExpenses() {
 		logger.info("Enter into this method");
 		return new ResponseEntity<List<Expense>>((List<Expense>) repository.findAll(), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/createExpense", method=RequestMethod.POST, produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE, consumes = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/createExpense", method = RequestMethod.POST, produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE, consumes = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Expense> createExpense(@RequestBody Expense expense) {
 		return new ResponseEntity<Expense>(repository.save(expense), HttpStatus.CREATED);
 	}
+
+	@RequestMapping(value = "/deleteAll", produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+	public ResponseEntity<String> deleteAll() {
+		logger.info("Enter into this method");
+		repository.deleteAll();
+		return new ResponseEntity<String>("Deleted SuccessFully", HttpStatus.OK);
+	}
+
 }
