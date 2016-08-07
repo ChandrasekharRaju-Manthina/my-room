@@ -1,19 +1,14 @@
 package com.ac.controller;
 
-import java.util.List;
-
+import com.ac.model.Expense;
+import com.ac.repository.ExpenseRepository;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.ac.model.Expense;
-import com.ac.repository.ExpenseRepository;
+import java.util.List;
 
 @RestController
 public class ExpenseManagerRestController {
@@ -51,8 +46,21 @@ public class ExpenseManagerRestController {
 		}
 		return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
 	}
-	
-	
-	
+
+	@RequestMapping(value = "/updateExpense", method = RequestMethod.PUT, produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE, consumes = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Expense> updateExpense(@RequestBody Expense expense) {
+
+		Expense tempExpense = null;
+
+		if (expense.getId() != null) {
+			tempExpense = repository.findOne(expense.getId());
+			tempExpense.setCost(expense.getCost());
+			tempExpense.setOwner(expense.getOwner());
+			return new ResponseEntity<Expense>(repository.save(tempExpense), HttpStatus.CREATED);
+		} else {
+			return new ResponseEntity<Expense>(repository.save(tempExpense), HttpStatus.CREATED);
+		}
+
+	}
 
 }

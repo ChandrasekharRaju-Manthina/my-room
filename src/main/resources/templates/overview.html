@@ -1,0 +1,67 @@
+
+<form ng-submit="saveExpense()">
+	<div id="createExpense" align="center">
+
+		<table border="1">
+			<thead>
+				<tr>
+					<th colspan="2">Create your Expenses Here!</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>OwnerName</td>
+					<td><input type="text" id="owner" ng-model="owner"></td>
+				</tr>
+				<tr>
+					<td>Cost</td>
+					<td><input type="number" id="cost" ng-model="cost"></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" value="Submit!" ></td>
+				</tr>
+
+			</tfoot>
+		</table>
+
+
+	</div>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+<div ng-app="myApp" ng-controller="customersCtrl" align="center">
+
+	<p style="height: 25px; font: arial;">OverView Expense Details!</p>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Owner</th>
+				<th>SpentDate</th>
+				<th>Amount</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="x in expenses">
+				<td>{{ x.id }}</td>
+				<td>{{ x.owner }}</td>
+				<td>{{ x.spentDate }}</td>
+				<td>{{ x.cost }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
+

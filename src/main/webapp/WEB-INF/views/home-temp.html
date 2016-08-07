@@ -6,7 +6,7 @@
            Expense Manager App [Create/Update Your Expenses Here!]
         </title>
         <!-- Load AngularJS -->
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="/resources/static/js/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
         
         <script type="text/javascript">
@@ -38,8 +38,8 @@
                         url = '/createExpense';
                     } else {
                         //If Id is present, it's edit operation - PUT operation
-                       /*  method = "PUT";
-                        url = 'employees/' + $scope.form.id; */
+                        method = "PUT";
+                        url = '/updateExpense'; 
                     }
          
                     $http({
