@@ -14,20 +14,22 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.ac.controller", "com.ac.model", "com.ac.repository"})
+@ComponentScan(basePackages = { "com.ac.controller", "com.ac.model",
+		"com.ac.repository", "com.ac.service" })
 @EnableAutoConfiguration
 @EnableJpaRepositories("com.ac.repository")
 @EntityScan("com.ac.model")
-public class MyRoomApplication  extends SpringBootServletInitializer   {
+public class MyRoomApplication extends SpringBootServletInitializer {
 
-    @Profile("local")
-    @Bean(destroyMethod = "shutdown")
-    public EmbeddedDatabase dataSource() {
-        return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).build();
-    }
-    
-    public static void main(String[] args) {
-        SpringApplication.run(MyRoomApplication.class, args);
-    }
+	@Profile("local")
+	@Bean(destroyMethod = "shutdown")
+	public EmbeddedDatabase dataSource() {
+		return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
+				.build();
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(MyRoomApplication.class, args);
+	}
 
 }
