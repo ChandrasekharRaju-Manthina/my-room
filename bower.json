@@ -1,0 +1,15 @@
+{
+  "name": "my-room",
+  "homepage": "https://github.com/ChandrasekharRaju-Manthina/my-room",
+  "authors": [
+    "Chandra",
+    "Anil"
+  ],
+  "description": "my-room app",
+  "main": "",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "angularjs#^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}
