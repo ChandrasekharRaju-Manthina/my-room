@@ -13,7 +13,7 @@ import com.ac.model.Expense;
 public class ExpenseRepositoryImpl implements ExpenseRepository {
 
 	@PersistenceContext
-	private EntityManager entityManager;
+	private EntityManager entityManager; 
 
 	@Override
 	public List<Expense> findAll() {

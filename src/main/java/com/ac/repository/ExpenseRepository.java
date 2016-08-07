@@ -6,7 +6,7 @@ import com.ac.model.Expense;
 
 public interface ExpenseRepository {
 
-	 List<Expense> findAll();
+	 List<Expense> findAll(); 
 	
 	 
 }
