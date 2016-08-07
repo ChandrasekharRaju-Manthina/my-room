@@ -1,5 +1,6 @@
 package com.ac.config;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,6 +20,14 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 @EnableJpaRepositories("com.ac.repository")
 @EntityScan("com.ac.model")
 public class MyRoomApplication  extends SpringBootServletInitializer   {
+	
+	
+	@Bean
+	CommandLineRunner init() {
+		return (String...args) -> {
+			System.out.println("test");
+		};
+	}
 
     @Profile("local")
     @Bean(destroyMethod = "shutdown")
