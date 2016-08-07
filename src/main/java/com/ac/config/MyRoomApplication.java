@@ -14,7 +14,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 @SpringBootApplication
-@ComponentScan(basePackages = { "com.ac.controller", "com.ac.model",
+@ComponentScan(basePackages = { "com.ac.controller", "com.ac.model", 
 		"com.ac.repository", "com.ac.service" })
 @EnableAutoConfiguration 
 @EnableJpaRepositories("com.ac.repository")
