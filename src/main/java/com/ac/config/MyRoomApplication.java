@@ -16,7 +16,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.ac.controller", "com.ac.model",
 		"com.ac.repository", "com.ac.service" })
-@EnableAutoConfiguration
+@EnableAutoConfiguration 
 @EnableJpaRepositories("com.ac.repository")
 @EntityScan("com.ac.model")
 public class MyRoomApplication extends SpringBootServletInitializer {
