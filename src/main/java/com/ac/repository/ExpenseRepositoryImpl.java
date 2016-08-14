@@ -13,13 +13,16 @@ import com.ac.model.Expense;
 public class ExpenseRepositoryImpl implements ExpenseRepository {
 
 	@PersistenceContext
-	private EntityManager entityManager; 
+	private EntityManager entityManager;
 
 	@Override
 	public List<Expense> findAll() {
-		return entityManager.createQuery("Select e From Expense e",
-				Expense.class).getResultList();
+		return entityManager.createQuery("Select e From Expense e", Expense.class).getResultList();
 	}
 
-	
+	@Override
+	public void save(Expense expense) {
+		entityManager.persist(expense);
+	}
+
 }

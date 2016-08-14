@@ -13,7 +13,7 @@ import com.ac.repository.ExpenseRepository;
 @Service
 @Transactional
 public class ExpenseServiceImpl implements ExpenseService {
- 
+
 	@Autowired
 	ExpenseRepository expenseRepository;
 
@@ -22,5 +22,10 @@ public class ExpenseServiceImpl implements ExpenseService {
 		return expenseRepository.findAll();
 	}
 
-	
+	@Override
+	public void addExpense(Expense expense) {
+		expenseRepository.save(expense);
+
+	}
+
 }

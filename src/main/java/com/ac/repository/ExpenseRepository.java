@@ -7,6 +7,8 @@ import com.ac.model.Expense;
 public interface ExpenseRepository {
 
 	 List<Expense> findAll(); 
+	 
+	 void save(Expense expense);
 	
 	 
 }
